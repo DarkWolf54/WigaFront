@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Facturas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content fullscreen>
+    <ion-list *ngIf="bills.length === 0">
+        <ion-item *ngFor="let i of [1,1,1,1,1,1,1,1,1,1,1,1]">
+            <ion-label>
+                <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="bills.length > 0">
+        <ion-list *ngFor="let bill of bills; let i = index" class="accordion-list" lines="none" detail="false" no-padding>
+            <ion-item class="card" tappable (click)="expandItem(bill)" [ngClass]="{'section-active': bill.open, 'section': !bill.open}">
+                <ion-icon slot="end" name="chevron-up-outline" *ngIf="bill.open"></ion-icon>
+                <ion-icon slot="end" name="chevron-down-outline" *ngIf="!bill.open"></ion-icon>
+                <ion-label>{{bill.fecha}}</ion-label>
+            </ion-item>
+
+
+
+            <div *ngIf="bill.open">
+                <ion-list *ngFor="let producto of productosDto" id="billList">
+                    <ion-item tappable>
+                        <ion-label>{{producto.nombre}} Cantidad: {{producto.cantidad}} Precio: {{producto.precio*producto.cantidad}}({{producto.precio}}c/u)</ion-label>
+                    </ion-item>
+                </ion-list>
+                <h4 style="text-align: right">Total: {{total}}</h4>
+            </div>
+
+        </ion-list>
+    </div>
+
+
+</ion-content>
+
+</ion-content>

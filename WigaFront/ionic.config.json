@@ -1,0 +1,7 @@
+{
+  "name": "WigaFront",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

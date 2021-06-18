@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "WigaFront",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
